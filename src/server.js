@@ -5,11 +5,13 @@ const express = require ("express");
 const app = express()
 
 const routerKoder = require("./routes/koder.route")
+const routerMentor = require("./routes/mentor.route")
 
 app.use(express.json())
 
 // * Primer midd
-app.use("/",routerKoder);
+app.use("/koders",routerKoder);
+app.use("/mentors",routerMentor)
 
 app.get ("/",(req,res)=> {
     res.json("El server jala")

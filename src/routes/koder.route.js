@@ -1,7 +1,6 @@
 //* Aqui se lee la request y respondemos   ROUTER: conjunto de rutas en una aplicacion
 
 const express = require ("express");
-const app = express();
 const {list,getKoder,createKoder,update,deleteK} = require("../usecases/koder.usecase")
 
 const router = express.Router();
