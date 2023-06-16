@@ -21,7 +21,7 @@ const register = async (data) => {
 const login = async (email,passwordPLain) => {
     // * validar el email
     const user = await User.findOne({email})
-    if(!user) throw createError(400,"Invalid data")
+    if(!user) throw createError(401,"Invalid data")
     // * validar la password
     const isValidPass = await bcrypt.compare(passwordPLain,user.password)
     if(!isValidPass) throw createError(400,"Invalid data")
@@ -32,4 +32,16 @@ const login = async (email,passwordPLain) => {
 return token
 }
 
-module.exports = {register,login}
+const list = () => {
+    const users = User.find()
+    return users
+}
+
+const get = (id) =>{
+    const user = User.findById(id)
+    if(!user) throw createError(404,"Usuario no encontrado")
+    return user
+}
+
+
+module.exports = {register,login,list,get}

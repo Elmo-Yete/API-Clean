@@ -3,13 +3,14 @@
 
 const express = require ("express");
 const app = express()
+const cors = require("cors")
 
 
 const routerKoder = require("./routes/koder.route")
 const routerMentor = require("./routes/mentor.route")
 const routerUser = require ("./routes/user.route")
 const authUser = require ("./routes/auth.route")
-
+app.use(cors())
 app.use(express.json())
 
 // * Primer midd
